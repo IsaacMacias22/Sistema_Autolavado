@@ -22,7 +22,7 @@
             <label for="txtCorreoEdit" class="form-label">Correo Electrónico</label>
             <input type="email" name="txtCorreoEdit" class="form-control" id="txtCorreoEdit" value="'.$dc[3].'">       
         </div>
-        <input type="hidden" name="_idCliente" value ="'.$dc[0].'"/>
+        <input type="hidden" name="txtIdCliente" value ="'.$dc[0].'"/>
         ';
     }
  ?>

@@ -20,7 +20,7 @@
     }
 
 
-    if(isset($_POST['txtIdCliente']))
+    if(isset($_POST['txtNombreEdit']))
     {
     	$c->Guardar($_POST['txtIdCliente'], $_POST['txtNombreEdit'], $_POST['txtTelefonoEdit'], $_POST['txtCorreoEdit']);
     	$p['resultado'] = $c->Mostrar('%');

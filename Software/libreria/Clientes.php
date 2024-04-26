@@ -59,15 +59,17 @@
                             <h1 class="modal-title fs-5" id="staticBackdropLabel">Edición de Cliente</h1>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <div class="modal-body">
-                            <div id="x">
-                            
+                        <form id="formularioClienteEdit" action="clientes" method="post">
+                            <div class="modal-body">
+                                <div id="x">
+                                
+                                </div>
                             </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
-                            <button type="button" class="btn btn-primary">Guardar</button>
-                        </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                                <button type="submit" class="btn btn-primary">Guardar</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -79,7 +81,6 @@
                         $("#x").html(mensaje);
                         $("#staticBackdrop").modal("show");
                     });
-                    alert(_ide);
                 });
             </script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.0.18/sweetalert2.min.js"></script>
@@ -109,6 +110,48 @@
                             const form = this.closest("form");
                             form.submit();
                         }
+                    });
+                });
+            });
+        </script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const formulario = document.getElementById("formularioClienteEdit");
+                formulario.addEventListener("submit", function (event) {
+                    event.preventDefault();
+                    fetch(formulario.action, {
+                        method: formulario.method,
+                        body: new FormData(formulario)
+                    }).then(response => {
+                        if (response.ok) {
+                            // Si la respuesta es satisfactoria, mostramos la alerta con SweetAlert
+                            Swal.fire({
+                                icon: "success",
+                                title: "Actualización Exitosa",
+                                text: "El cliente ha sido actualizado correctamente."
+                            }).then(() => {
+                                setTimeout(() => {
+                                    location.reload();
+                                }, 250); // Espera 250 milisegundos (0.25 segundos) antes de recargar
+                            });
+                            // Cerrar el modal después de mostrar la alerta
+                            $("#staticBackdropNuevo").modal("hide");
+                        } else {
+                            // Si la respuesta no es satisfactoria, mostramos un mensaje de error
+                            Swal.fire({
+                                icon: "error",
+                                title: "Error",
+                                text: "Ha ocurrido un error al actualizar el cliente. Por favor, inténtalo de nuevo."
+                            });
+                        }
+                    }).catch(error => {
+                        console.error("Error:", error);
+                        // Si hay un error en la solicitud, mostramos una alerta de error
+                        Swal.fire({
+                            icon: "error",
+                            title: "Error",
+                            text: "Ha ocurrido un error al actualizar el cliente. Por favor, inténtalo de nuevo."
+                        });
                     });
                 });
             });
