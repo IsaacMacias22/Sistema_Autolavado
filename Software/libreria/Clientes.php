@@ -75,7 +75,6 @@
             </div>
             <script>
                 $(".editar").click(function() {
-                    console.log("Clic en el botón editar");
                     let _ide = $(this).attr("_ide");
                     $.post("clientesacciones", {ide: _ide}, function(mensaje){
                         $("#x").html(mensaje);

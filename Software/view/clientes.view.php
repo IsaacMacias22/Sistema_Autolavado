@@ -97,24 +97,24 @@
         });
     });
 </script>
-<!-- <script>
-    $(document).ready(function() {
-        $('#inputBuscarCliente').on('change', function() {
-            var searchText = $(this).val(); // Obtener el texto del input
+<script>
+    // Función para formatear el número de teléfono
+    function formatearTelefono(numero) {
+        // Eliminar cualquier carácter que no sea un dígito
+        var digits = numero.replace(/\D/g, '');
+        // Aplicar el formato (999) 999-9999
+        var formateado = digits.replace(/(\d{3})(\d{3})(\d{4})/, '($1) $2-$3');
+        return formateado;
+    }
 
-            // Realizar una solicitud AJAX al servidor
-            $.ajax({
-                type: 'POST',
-                url: '../controller/clientes.php',
-                data: { searchText: searchText }, // Enviar el texto como parámetro
-                success: function(response) {
-                    // Actualizar la parte de la página que muestra los resultados filtrados
-                    $('#resultadoClientes').html(response);
-                },
-                error: function() {
-                    console.error('Error al realizar la solicitud AJAX');
-                }
-            });
-        });
+    // Obtener el elemento de entrada
+    var inputTelefono = document.getElementById('txtTelefono');
+
+    // Escuchar el evento de cambio en el campo de entrada
+    inputTelefono.addEventListener('input', function() {
+        // Obtener el valor del campo de entrada
+        var valor = this.value;
+        // Formatear el número de teléfono y establecerlo como valor del campo de entrada
+        this.value = formatearTelefono(valor);
     });
-</script> -->
+</script>
