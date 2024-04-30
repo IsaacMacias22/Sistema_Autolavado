@@ -168,10 +168,10 @@
             $query->prepare("select * from clientes where idCliente=?");
             $query->bind_param('i', $id);
             $query->execute();
-            $query->bind_result($id, $nombre, $telefono, $correo); //Traer datos
+            $query->bind_result($idCliente, $nombre, $telefono, $correo); //Traer datos
             $query->fetch(); //Almacenarlos en la memoria
             $query->close();
-            return array($id, $nombre, $telefono, $correo);
+            return array($idCliente, $nombre, $telefono, $correo);
         }
         function Eliminar($id)
         {
