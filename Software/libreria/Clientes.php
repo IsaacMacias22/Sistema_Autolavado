@@ -1,5 +1,5 @@
 <?php
-    class Clientes
+    class Clientes implements IPersona
     {
         function Guardar($idCliente, $nombre, $telefono, $correo)
         {
@@ -160,26 +160,26 @@
             //Tomar id desde el botón 
             //Crear petición de tipo post, enviar ide y la función será sobreescribir en el id x el mensaje que retorne el controlador
         }
-        function GetDatos($idCliente)
+        function GetDatos($id)
         {
             $con = new mysqli(s,u,p,bd);
             $con->set_charset("utf8");
             $query = $con->stmt_init();
             $query->prepare("select * from clientes where idCliente=?");
-            $query->bind_param('i', $idCliente);
+            $query->bind_param('i', $id);
             $query->execute();
-            $query->bind_result($idCliente, $nombre, $telefono, $correo); //Traer datos
+            $query->bind_result($id, $nombre, $telefono, $correo); //Traer datos
             $query->fetch(); //Almacenarlos en la memoria
             $query->close();
-            return array($idCliente, $nombre, $telefono, $correo);
+            return array($id, $nombre, $telefono, $correo);
         }
-        function Eliminar($idCliente)
+        function Eliminar($id)
         {
             $con = new mysqli(s,u,p,bd);
             $con->set_charset("utf8");
             $query = $con->stmt_init();
             $query->prepare("delete from clientes where idCliente = ?");
-            $query->bind_param('i', $idCliente);
+            $query->bind_param('i', $id);
             $query->execute();
             $query->close();
         }

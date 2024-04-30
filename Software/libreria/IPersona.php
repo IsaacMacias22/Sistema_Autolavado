@@ -1,7 +1,6 @@
 <?php
     interface IPersona
     {
-        function Guardar();
         function Mostrar($filtro);
         function GetDatos($id);
         function Eliminar($id);

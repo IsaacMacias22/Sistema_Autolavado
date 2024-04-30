@@ -1,6 +1,7 @@
 <?php 
 	session_start();
 	require 'config.php';
+    require 'libreria/IPersona.php';
 	require 'libreria/Clientes.php';
 	$c = new Clientes();
 
