@@ -1,6 +1,5 @@
 <section class="container-xl">
   <h2 class="text-center mt-4 pb-4 border-bottom border-1">Empleados</h2>
-  <img src="../storage/1.png" alt="" width="200" height="200">
   <div class="row w-100 mb-4 mt-4">
     <div class="d-flex justify-content-between">
     <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#staticBackdropNuevo" id="botonclientenuevo">

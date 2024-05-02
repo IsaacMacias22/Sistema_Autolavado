@@ -38,4 +38,9 @@
         <input type="hidden" name="txtIdEmpleado" value ="'.$dc[0].'"/>
         ';
     }
+    if(isset($_POST['imagen']))
+    {
+        echo $mensaje = '
+        <img src="http://localhost/sistema_autolavado/Sistema_Autolavado/Software/storage/'.$_POST['imagen'].'" alt="Imagen por defecto" width="250" height="300">';
+    }
  ?>
