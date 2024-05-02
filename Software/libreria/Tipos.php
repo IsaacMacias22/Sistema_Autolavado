@@ -29,7 +29,7 @@
             {
                 $rs.= '<tr>
                         <td>'.$descripcion.'</td>
-                        <td>'.$costo.'</td>
+                        <td>$'.$costo.'</td>
                         <td>'.$observacion.'</td>
                         <td class="d-flex">
                             <button class="btn btn-primary btn-sm editar" data-bs-toggle="modal" data-bs-target="#staticBackdrop" _ide='.$idTipo.'>
