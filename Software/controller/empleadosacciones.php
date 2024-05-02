@@ -28,12 +28,12 @@
             <input type="email" name="txtCorreoEdit" class="form-control" id="txtCorreoEdit" value="'.$dc[4].'">       
         </div>
         <div class="form-group my-2">
-            <label for="txtPorcentajeEdit" class="form-label">Correo Electrónico</label>
+            <label for="txtPorcentajeEdit" class="form-label">Porcentaje</label>
             <input type="number" name="txtPorcentajeEdit" class="form-control" id="txtPorcentajeEdit" value="'.$dc[5].'">       
         </div>
-        <div class="form-group my-2">
-            <label for="txtImagenEdit" class="form-label">Correo Electrónico</label>
-            <input type="email" name="txtImagenEdit" class="form-control" id="txtImagenEdit" value="'.$dc[6].'">       
+        <div class="form-group my-2 d-flex flex-column">
+            <label for="txtImagenEdit" class="form-label">Imagen</label>
+            <input type="file" name="imagen" accept="image/*" value="'.$dc[6].'">      
         </div>
         <input type="hidden" name="txtIdEmpleado" value ="'.$dc[0].'"/>
         ';

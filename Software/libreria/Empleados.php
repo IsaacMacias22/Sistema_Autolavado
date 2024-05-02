@@ -7,7 +7,7 @@
             $con->set_charset("utf8");
             $query = $con->stmt_init();
             $query->prepare("call p_insertar_modificarEmpleados(?, ?, ?, ?, ?, ?, ?)");
-            $query->bind_param('isss', $idEmpleado, $nombre, $apellidos, $telefono, $correo, $porcentaje, $imagen);
+            $query->bind_param('issssds', $idEmpleado, $nombre, $apellidos, $telefono, $correo, $porcentaje, $imagen);
             $query->execute();
             $query->close();
         }
@@ -33,9 +33,9 @@
                         <td>'.$telefono.'</td>
                         <td>'.$correo.'</td>
                         <td>'.$porcentaje.'</td>
-                        <td>'.$imagen.'</td>
+                        <td><img src="../storage/1.png" alt="Imagen por defecto" width="100" height="120"></td>
                         <td class="d-flex">
-                            <button class="btn btn-primary btn-sm editar" data-bs-toggle="modal" data-bs-target="#staticBackdrop" _ide='.$idCliente.'>
+                            <button class="btn btn-primary btn-sm editar" data-bs-toggle="modal" data-bs-target="#staticBackdrop" _ide='.$idEmpleado.'>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
                                     <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
                                     <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
@@ -62,7 +62,7 @@
                             <h1 class="modal-title fs-5" id="staticBackdropLabel">Edición de Empleado</h1>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <form id="formularioEmpleadoEdit" action="empleados" method="post">
+                        <form id="formularioEmpleadoEdit" action="empleados" method="post" enctype="multipart/form-data">
                             <div class="modal-body">
                                 <div id="x">
                                 
@@ -118,7 +118,7 @@
         </script>
         <script>
             document.addEventListener("DOMContentLoaded", function () {
-                const formulario = document.getElementById("formularioClienteEdit");
+                const formulario = document.getElementById("formularioEmpleadoEdit");
                 formulario.addEventListener("submit", function (event) {
                     event.preventDefault();
                     fetch(formulario.action, {
