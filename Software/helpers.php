@@ -26,7 +26,7 @@ function Controller($controller)
 {
 	if(empty($controller))
 	{
-		$controller = 'home';
+		$controller = 'login';
 	}
 		
 	$file = "controller/$controller.php";
