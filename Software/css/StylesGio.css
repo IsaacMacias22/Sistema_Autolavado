@@ -1,6 +1,8 @@
 .centrar
 {
     text-align: center;
+    align-items: center !important;
+    align-content: center !important;
 }
 .izquierda
 {
@@ -10,6 +12,7 @@
 {
     text-align: right;
 }
+<<<<<<< HEAD
 .bgazul1
 {
     background-color: #1c5c79 !important;
@@ -21,4 +24,40 @@
 .bgazul3
 {
     background-color: #95d1e4;
+=======
+
+.card{
+    background: white;
+    /* Para la sombra */
+    box-shadow: 5px 5px 10px rgb(85, 84, 84) !important;
+    /* Para el redondeado */
+    border-radius: 5px;
+    margin: 0% !important;
+}
+
+.card-title{
+    margin-left: 30px;
+    padding-top: 15px;
+}
+
+.image {
+    width: 5% !important; /* Ancho del 5% del contenedor padre */
+    height: auto !important; /* Altura ajustada automáticamente para mantener la proporción */
+    border: 5px solid black !important; /* Borde de 5px sólido negro */
+}
+
+.p{
+    padding: 0px 0px 0px 0px !important;
+    margin: 0px 0px !important;
+}
+
+.card-image img{
+    width: 10% !important;
+    height: auto !important;
+    border-radius: 5px !important;
+  }
+
+.ColorTurnos{
+    background-color: rgb(30, 91,120);
+>>>>>>> eae0ad1b98f95d00e25a20529411db4740d470b2
 }
