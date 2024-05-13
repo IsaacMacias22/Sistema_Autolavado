@@ -27,7 +27,8 @@
 			$p['comentarios'] = "Hubo un error al subir la imagen.";
 		}
 
-    	$v->Guardar(-1, $_POST['txtMarca'], $_POST['txtModelo'], $_POST['txtAnio'], $_POST['txtColor'], $_POST['txtPlacas'], $file_name, $_POST['idCliente'], $_POST['cmbTipo']);
+    	$v->Guardar(-1, $_POST['txtMarca'], $_POST['txtModelo'], $_POST['txtAnio'], $_POST['txtColor'], $_POST['txtPlacas'], $file_name, 
+		$_POST['txtObservacion'], $_POST['idCliente'], $_POST['cmbTipo']);
     	$p['resultado'] = $v->Mostrar('%');
     }
 
@@ -62,7 +63,7 @@
 		}
 
     	$v->Guardar($_POST['txtIdVehiculo'], $_POST['txtMarcaEditar'], $_POST['txtModeloEditar'], $_POST['txtAnioEditar'], $_POST['txtColorEditar'], 
-		$_POST['txtPlacasEditar'], $file_name, $_POST['idClienteEditar'], $_POST['cmbTipoEditar']);
+		$_POST['txtPlacasEditar'], $file_name, $_POST['txtObservacionEditar'], $_POST['idClienteEditar'], $_POST['cmbTipoEditar']);
     	$p['resultado'] = $v->Mostrar('%');
     }
 

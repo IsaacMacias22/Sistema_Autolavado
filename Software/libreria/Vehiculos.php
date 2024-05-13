@@ -1,13 +1,13 @@
 <?php
     class Vehiculos
     {
-        function Guardar($idVehiculo, $marca, $modelo, $anio, $color, $placas, $imagen, $fkIdCliente, $fkIdTipo)
+        function Guardar($idVehiculo, $marca, $modelo, $anio, $color, $placas, $imagen, $observacion, $fkIdCliente, $fkIdTipo)
         {
             $con = new mysqli(s,u,p,bd);
             $con->set_charset("utf8");
             $query = $con->stmt_init();
-            $query->prepare("call p_insertar_modificarVehiculos(?, ?, ?, ?, ?, ?, ?, ?, ?)");
-            $query->bind_param('issssssii', $idVehiculo, $marca, $modelo, $anio, $color, $placas, $imagen, $fkIdCliente, $fkIdTipo);
+            $query->prepare("call p_insertar_modificarVehiculos(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            $query->bind_param('issssssdii', $idVehiculo, $marca, $modelo, $anio, $color, $placas, $imagen, $observacion, $fkIdCliente, $fkIdTipo);
             $query->execute();
             $query->close();
         }
@@ -36,7 +36,7 @@
                         <td>'.$placas.'</td>
                         <td>'.$cliente.'
                         &nbsp;
-                            <button type="button" class="btn btn-sm editarCliente" data-bs-toggle="modal" data-bs-target="#staticBackdropClienteEditar" id="btnMostrarModalClienteEditar" _idv="'.$idVehiculo.'">
+                            <button type="button" class="btn btn-sm editarCliente" data-bs-toggle="modal" data-bs-target="#staticBackdropClienteEditar" _idv="'.$idVehiculo.'" _clientes="clientes">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-repeat" viewBox="0 0 16 16">
                             <path d="M11.534 7h3.932a.25.25 0 0 1 .192.41l-1.966 2.36a.25.25 0 0 1-.384 0l-1.966-2.36a.25.25 0 0 1 .192-.41m-11 2h3.932a.25.25 0 0 0 .192-.41L2.692 6.23a.25.25 0 0 0-.384 0L.342 8.59A.25.25 0 0 0 .534 9"/>
                             <path fill-rule="evenodd" d="M8 3c-1.552 0-2.94.707-3.857 1.818a.5.5 0 1 1-.771-.636A6.002 6.002 0 0 1 13.917 7H12.9A5 5 0 0 0 8 3M3.1 9a5.002 5.002 0 0 0 8.757 2.182.5.5 0 1 1 .771.636A6.002 6.002 0 0 1 2.083 9z"/>
@@ -192,8 +192,14 @@
             <script>
                 $(".editarCliente").click(function() {
                     let _idv = $(this).attr("_idv");
-                    const idVehiculo = document.getElementById("clienteIdVehiculo");
-                    idVehiculo.value = _idv;
+                    let dataClientes = $(this).attr("_clientes"); // Obtiene el valor del atributo _clientes
+
+                    $.post("vehiculosacciones", {clientes: dataClientes}, function (mensaje){
+                        $("#tablaClientesEditar").html(mensaje);
+                        $("staticBackdropClienteEditar").modal("show"); 
+                        let idVehiculo = document.getElementById("clienteIdVehiculo");
+                        idVehiculo.value = _idv;
+                    });
                 });
             </script>
 
@@ -206,27 +212,6 @@
                     });
                 });
             </script>
-
-            <script>
-            // Obtén el botón por su ID
-            const btn = document.getElementById("btnMostrarModalClienteEditar");
-
-            // Añade un event listener para el evento de clic
-            btn.addEventListener("click", function(event) {
-                event.preventDefault();
-
-                const dataClientes = btn.getAttribute("_clientes"); // Obtiene el valor del atributo _clientes
-
-                $.post("vehiculosacciones", {clientes: dataClientes}, function (mensaje){
-                    $("#tablaClientesEditar").html(mensaje);
-                    $("staticBackdropClienteEditar").modal("show"); 
-                });
-            });
-        </script>
-        <script>
-    
-            
-        </script>
 
 
             <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.0.18/sweetalert2.min.js"></script>
@@ -384,10 +369,10 @@
             $query->prepare("CALL p_mostrarVehiculosYClientes(?)");
             $query->bind_param('i', $id);
             $query->execute();
-            $query->bind_result($idVehiculo, $marca, $modelo, $anio, $color, $placas, $imagen, $fkIdCliente, $fkIdTipo, $idCliente, $nombre, $telefono, $correo); //Traer datos
+            $query->bind_result($idVehiculo, $marca, $modelo, $anio, $color, $placas, $imagen, $observacion, $fkIdCliente, $fkIdTipo, $idCliente, $nombre, $telefono, $correo); //Traer datos
             $query->fetch(); //Almacenarlos en la memoria
             $query->close();
-            return array($idVehiculo, $marca, $modelo, $anio, $color, $placas, $imagen, $fkIdCliente, $fkIdTipo, $idCliente, $nombre, $telefono, $correo);
+            return array($idVehiculo, $marca, $modelo, $anio, $color, $placas, $imagen, $observacion, $fkIdCliente, $fkIdTipo, $idCliente, $nombre, $telefono, $correo);
         }
         function GetClientes($filtro)
         {

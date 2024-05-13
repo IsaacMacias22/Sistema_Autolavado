@@ -12,7 +12,7 @@
             <div class="row my-2">
                 <div class="form-group col">
                     <label for="cmbTipoEditar" class="form-label">Tipo</label>
-                    <select class="form-select" aria-label="Seleccionar Tipo" name="cmbTipoEditar" id="cmbTipoEditar" value="'.$dc[8].'">
+                    <select class="form-select" aria-label="Seleccionar Tipo" name="cmbTipoEditar" id="cmbTipoEditar" value="'.$dc[9].'">
                         <option selected>Seleccionar</option>
                         <option value="1">Automóvil</option>
                         <option value="2">Camioneta</option>
@@ -47,8 +47,8 @@
             <div class="row my-2">
                 <div class="form-group col">
                     <label for="nombreClienteEditar" class="form-label">Dueño</label>
-                    <input type="text" name="nombreClienteEditar" id="nombreClienteEditar" class="form-control" value="'.$dc[10].'" placeholder="Nombre del cliente" disabled>
-                    <input type="hidden" name="idClienteEditar" id="idClienteEditar" value="'.$dc[9].'">
+                    <input type="text" name="nombreClienteEditar" id="nombreClienteEditar" class="form-control" value="'.$dc[11].'" placeholder="Nombre del cliente" disabled>
+                    <input type="hidden" name="idClienteEditar" id="idClienteEditar" value="'.$dc[10].'">
                 </div>
                 <div class="form-group col d-flex flex-column">
                     <label for="txtImagen" class="form-label">Imagen</label>
@@ -57,7 +57,7 @@
                 </div>
             </div>
                 <input type="hidden" name="txtIdVehiculo" value="'.$dc[0].'">
-                
+                <input type="hidden" name="txtObservacionEditar" value="'.$dc[7].'">
                 ';
                 
     }

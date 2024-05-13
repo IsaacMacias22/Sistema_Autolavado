@@ -31,16 +31,16 @@
                     <div class="row my-2">
                         <div class="form-group col">
                             <label for="cmbTipo" class="form-label">Tipo</label>
-                            <select class="form-select" aria-label="Seleccionar Tipo" name="cmbTipo" id="cmbTipo">
-                                <option selected>Seleccionar</option>
+                            <select class="form-select" aria-label="Seleccionar Tipo" name="cmbTipo" id="cmbTipo" onchange="mostrarSeleccion()">
+                                <option selected value="0">Seleccionar</option>
                                 <option value="1">Automóvil</option>
                                 <option value="2">Camioneta</option>
                                 <option value="3">Tracto camión</option>
                             </select>
                         </div>
                         <div class="form-group col">
-                            <label for="txtPlacas" class="form-label">Placas</label>
-                            <input type="text" name="txtPlacas" class="form-control" id="txtPlacas" placeholder="Placas del vehículo">       
+                            <label for="txtObservacion" class="form-label">Observación</label>
+                            <input type="number" name="txtObservacion" class="form-control" id="txtObservacion" placeholder="Observación" disabled>       
                         </div>
                     </div>
                     <div class="row my-2">
@@ -65,7 +65,17 @@
                     </div>
                     <div class="row my-2">
                         <div class="form-group col">
-                            <label for="nombreCliente" class="form-label">Dueño</label>
+                            <label for="txtPlacas" class="form-label">Placas</label>
+                            <input type="text" name="txtPlacas" class="form-control" id="txtPlacas" placeholder="Placas del vehículo">       
+                        </div>
+                        <div class="form-group col d-flex flex-column">
+                            <label for="txtImagen" class="form-label">Imagen</label>
+                            <input type="file" name="imagen" accept="image/*">   
+                        </div>
+                    </div>
+                    <div class="row my-2">
+                        <div class="form-group col">
+                            <label for="nombreCliente" class="form-label">Dueño (Nombre)</label>
                                 <button type="button" class="btn btn-sm" data-bs-toggle="modal" data-bs-target="#staticBackdropCliente" id="btnMostrarModalCliente">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#000000" class="bi bi-search" viewBox="0 0 18 18">
                                         <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
@@ -74,9 +84,9 @@
                             <input type="text" name="nombreCliente" id="nombreCliente" class="form-control" value="" placeholder="Nombre del cliente" disabled>
                             <input type="hidden" name="idCliente" id="idCliente">
                         </div>
-                        <div class="form-group col d-flex flex-column">
-                            <label for="txtImagen" class="form-label">Imagen</label>
-                            <input type="file" name="imagen" accept="image/*">   
+                        <div class="form-group col">
+                            <label for="telefonoCliente" class="form-label">Dueño (Teléfono)</label>
+                            <input type="text" name="telefonoCliente" id="telefonoCliente" class="form-control" value="" placeholder="Teléfono del cliente" disabled>
                         </div>
                     </div>
                 </div>
@@ -200,9 +210,11 @@
         $('#staticBackdropCliente tbody tr').click(function () {
             var nombreCliente = $(this).find('td:eq(1)').text();
             var idCliente = $(this).find('td:eq(0)').text();
+            var telefonoCliente = $(this).find('td:eq(2)').text();
 
             $('#nombreCliente').val(nombreCliente);
             $('#idCliente').val(idCliente);
+            $('#telefonoCliente').val(telefonoCliente);
 
             $('#staticBackdropCliente').modal('hide');
         });
@@ -226,4 +238,36 @@
             });
         });
     });
+</script>
+<script>
+      function mostrarSeleccion() {
+        // Obtener el elemento select
+        var selectElement = document.getElementById("cmbTipo");
+  
+        // Obtener el valor seleccionado
+        var selectedValue = selectElement.value;
+  
+        // Obtener el elemento input
+        var observacionInput = document.getElementById("txtObservacion");
+  
+        if (selectedValue == "1") {
+            observacionInput.value = "1";
+            observacionInput.disabled = true;
+        } 
+        else if (selectedValue == "2"){
+            observacionInput.placeholder = "Número de puertas";
+            observacionInput.value = "";
+            observacionInput.disabled = false;
+        }
+        else if (selectedValue == "3"){
+            observacionInput.placeholder = "Longitud";
+            observacionInput.value = "";
+            observacionInput.disabled = false;
+        }
+        else if (selectedValue == "0"){
+            observacionInput.value = "";
+            observacionInput.disabled = true;
+            observacion.placeholder = "Observación";
+        }
+      }
 </script>
