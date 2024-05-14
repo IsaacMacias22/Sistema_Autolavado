@@ -1,11 +1,21 @@
 <?php 
-
 //Loades view module NCHR
 function View($view,$param = array(), $masterpage = '')
 {
 	extract($param);	
 
+	// Asigna el valor de $_SESSION['navbar'] a $nav si está disponible
+    if (isset($_SESSION['navbar'])) {
+        $nav = $_SESSION['navbar'];
+    }
+	else {
+		$nav = '';
+	}
+
+	$NAVBAR = $nav;
+
     ob_start();
+
 	$file = "view/$view.view.php";
 	require $file;
 	$view_content = ob_get_clean();

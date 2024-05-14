@@ -1,6 +1,5 @@
 <div class="ColorTurnos d-flex align-items-center">
-        <img src="./images/LOGO.png" class="imgbarra" alt="Imagen">
-        <h5 class="text-white ms-3">REGISTRO TURNOS</h5>
+        <h5 class="text-white ms-3 mt-4 mb-4">REGISTRO TURNOS</h5>
     <div class="col">
         <button class="btn btn-light ms-3 me-4 float-end" data-toggle="modal" data-target="#addturno">NUEVO</button>
     </div>

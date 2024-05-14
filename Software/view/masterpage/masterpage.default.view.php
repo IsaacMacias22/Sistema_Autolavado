@@ -33,7 +33,7 @@
   }
   .imgbarra
   {
-    width: 5% !important;
+    width: 10% !important;
     height: auto !important;
     border-radius: 5px !important;
   }
@@ -45,7 +45,8 @@
   </style>
 </head>
 <body>
-  <div><?php echo $view_content; ?></div>
+<div><?php echo $NAVBAR?></div>
+<div><?php echo $view_content; ?></div>
 </body>
 </html>
 

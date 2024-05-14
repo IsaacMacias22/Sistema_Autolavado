@@ -1,5 +1,16 @@
 <?php 
 	session_start();
-	$p = array();
+    $p['navbar'] = '';
+	
+	if (!isset($_SESSION['username'])) 
+	{
+		header("Location: login");
+		exit();
+	}
+
+	$p['usuario'] = $_SESSION['username'];
+	$p['rol'] = $_SESSION['rol'];
+
+
 	View('home',$p);
  ?>

@@ -10,6 +10,7 @@
 		exit();
 	}
 
+	$p['usuario'] = $_SESSION['username'];
 	$p['resultado'] = $c->GetDatos(date('2024-05-05'));
 
 	if (isset($_POST['ide'])) 
