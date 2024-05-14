@@ -9,7 +9,7 @@
 		header("Location: login");
 		exit();
 	}
-
+	$p['usuario'] = $_SESSION['username'];
 	$p['resultado'] = $c->GetDatos(date('Y-m-d'));
 
 	if (isset($_POST['ide'])) 

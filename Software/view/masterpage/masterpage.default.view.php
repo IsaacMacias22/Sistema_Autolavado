@@ -23,7 +23,7 @@
   <link rel="stylesheet" type="text/css" href="css/StylesGio.css">
   <script src="dist/js/bootstrap.min.js"></script>
   <script src="jquery/jquery.min.js"></script>
-  <style>
+    <style>
     .card-image img{
         width: 100% !important;
         height: auto !important;
@@ -57,7 +57,8 @@
     </style>
 </head>
 <body>
-  <div><?php echo $view_content; ?></div>
+<div><?php echo $NAVBAR?></div>
+<div><?php echo $view_content; ?></div>
 </body>
 </html>
 
