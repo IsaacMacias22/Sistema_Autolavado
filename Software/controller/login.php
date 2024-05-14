@@ -58,7 +58,7 @@
             </nav>';
             }
 
-            if ($dc[2] == "Admin")
+            if ($dc[2] == "Administrador")
             {
                 $_SESSION['navbar'] = '<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
                 <div class="container-fluid">

@@ -6,6 +6,11 @@
 	$p['resultado'] = $c->Mostrar('%');
 
 
+	if (!isset($_SESSION['username'])) 
+	{
+		header("Location: login");
+		exit();
+	}
     if(isset($_POST['txtCostoEdit']))
     {
     	$c->Guardar($_POST['txtIdTipo'], $_POST['txtCostoEdit']);

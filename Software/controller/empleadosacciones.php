@@ -33,7 +33,8 @@
         </div>
         <div class="form-group my-2 d-flex flex-column">
             <label for="txtImagenEdit" class="form-label">Imagen</label>
-            <input type="file" name="imagen" accept="image/*" value="'.$dc[6].'">      
+            <input type="file" name="imagen" accept="image/*">
+            <input type="hidden" name="valorImagen" value="'.$dc[6].'">      
         </div>
         <input type="hidden" name="txtIdEmpleado" value ="'.$dc[0].'"/>
         ';

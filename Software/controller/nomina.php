@@ -1,12 +1,12 @@
 <?php 
 	session_start();
 	require 'config.php';
-	require 'libreria/IPersona.php';
-	require 'libreria/Clientes.php';
-	$c = new Clientes();
-	$p['resultado'] = $c->Mostrar('%');
+	require 'libreria/Nomina.php';
 
-	if (!isset($_SESSION['username'])) 
+	$c = new Nomina();
+	$p['resultado'] = $c->Mostrar(date('Y-m-d'));
+
+    if (!isset($_SESSION['username'])) 
 	{
 		header("Location: login");
 		exit();
@@ -39,5 +39,5 @@
 		// exit; // Detener la ejecución del resto del código
 	}
 
-	View('clientes',$p);
+	View('nominas',$p);
  ?>

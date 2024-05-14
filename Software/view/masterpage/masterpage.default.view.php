@@ -57,7 +57,7 @@
     </style>
 </head>
 <body>
-<div><?php echo $NAVBAR?></div>
+<div><?php echo $NAVBAR;?></div>
 <div><?php echo $view_content; ?></div>
 </body>
 </html>

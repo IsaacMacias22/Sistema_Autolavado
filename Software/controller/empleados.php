@@ -7,6 +7,11 @@
 	$p['resultado'] = $c->Mostrar('%');
 	$p['comentarios'] = '';
 
+	if (!isset($_SESSION['username'])) 
+	{
+		header("Location: login");
+		exit();
+	}
     //tomar peticion post para insertar
     if(isset($_POST['txtNombre']) && isset($_FILES['imagen']))
     {
@@ -49,6 +54,10 @@
 			$p['comentarios'] = "La imagen se ha subido correctamente.";
 		} else{
 			$p['comentarios'] = "Hubo un error al subir la imagen.";
+		}
+		if(empty($file_name))
+		{
+			$file_name = $_POST['valorImagen'];
 		}
     	$c->Guardar($_POST['txtIdEmpleado'], $_POST['txtNombreEdit'], $_POST['txtApellidosEdit'], $_POST['txtTelefonoEdit'], 
         $_POST['txtCorreoEdit'], $_POST['txtPorcentajeEdit'], $file_name);

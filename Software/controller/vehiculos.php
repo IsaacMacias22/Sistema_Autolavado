@@ -10,6 +10,11 @@
 
     $vf = new VehiculosFactory();
 
+	if (!isset($_SESSION['username'])) 
+	{
+		header("Location: login");
+		exit();
+	}
     //tomar peticion post para insertar
     if(isset($_POST['cmbTipo'])  && isset($_FILES['imagen']))
     {
