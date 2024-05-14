@@ -10,18 +10,18 @@
 		exit();
 	}
 
-	$p['resultado'] = $c->GetDatos(date('2024-05-05'));
+	$p['resultado'] = $c->GetDatos(date('Y-m-d'));
 
 	if (isset($_POST['ide'])) 
 	{
 		$c->Editar($_POST['ide'],$_POST['estatus']);
-		$p['resultado'] = $c->GetDatos(date('2024-05-05'));
+		$p['resultado'] = $c->GetDatos(date('Y-m-d'));
 	}
 
 	if (isset($_POST['txtidcli'])) 
 	{
-		$c->Agregar($_POST['txtidcli'],$_POST['txtautomoviladd'],$_POST['txtidlava'],$_POST['txtcostoadd'],'2024-05-05');
-		$p['resultado'] = $c->GetDatos(date('2024-05-05'));
+		$c->Agregar($_POST['txtidcli'],$_POST['txtautomoviladd'],$_POST['txtidlava'], $_POST['txtcostoadd'], date('Y-m-d'));
+		$p['resultado'] = $c->GetDatos(date('Y-m-d'));
 	}
 
 	View('turnos',$p);

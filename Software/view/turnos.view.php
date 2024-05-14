@@ -50,34 +50,36 @@
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <div class="modal-body">
-          <div class="row">
-            <div class="col-6">
-                Cliente:
-                <button class="btn btn-sm cliente"  data-toggle="modal" data-target="#buscarcliente" _clien=%>&#128269;</button>
-                <input type="text" name="txtcliente" id="txtcliente" class="form-control" disabled>
-                Lavador:
-                <button class="btn btn-sm lavador"  data-toggle="modal" data-target="#buscarcliente" _lava=%>&#128269;</button>
-                <input type="text" name="txtlavador" id="txtlavador" class="form-control" disabled>
+            <div class="modal-body">
+            <div class="row">
+              <div class="col-6">
+                  Cliente:
+                  <button class="btn btn-sm cliente" type="button" data-toggle="modal" data-target="#buscarcliente" _clien=%>&#128269;</button>
+                  <input type="text" name="txtcliente" id="txtcliente" class="form-control" disabled>
+                  Lavador:
+                  <button class="btn btn-sm lavador" type="button" data-toggle="modal" data-target="#buscarcliente" _lava=%>&#128269;</button>
+                  <input type="text" name="txtlavador" id="txtlavador" class="form-control" disabled>
+              </div>
+              <div class="col-6">
+                  Automovil:
+                  <input type="text" name="txtautomovil" id="txtautomovil" class="form-control mt-1 mb-2" disabled>
+                  Costo:
+                  <div id="costo">
+                    <input type="number" name="txtCostoLavado" id="txtCostoLavado" class="form-control mt-1" disabled>
+                  </div>
+              </div>
+              </div>
             </div>
-            <div class="col-6">
-                Automovil:
-                <input type="text" name="txtautomovil" id="txtautomovil" class="form-control mt-1 mb-2" disabled>
-                Costo:
-                <input type="number" name="txtNombreEdit" class="form-control mt-1">
+            <div class="modal-footer">
+              <form action="turnos" method="post">
+                  <input type="hidden" name="txtidcli" id="txtidcli">
+                  <input type="hidden" name="txtautomoviladd" id="txtautomoviladd">
+                  <input type="hidden" name="txtcostoadd" id="txtcostoadd">
+                  <input type="hidden" name="txtidlava" id="txtidlava">
+                  <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                  <button type="submit" class="btn btn-primary">Agregar</button>
+              </form>
             </div>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <form action="turnos" method="post">
-                <input type="hidden" name="txtidcli" id="txtidcli">
-                <input type="hidden" name="txtautomoviladd" id="txtautomoviladd">
-                <input type="hidden" name="txtcostoadd" id="txtcostoadd">
-                <input type="hidden" name="txtidlava" id="txtidlava">
-                <button type="submit" class="btn btn-primary">Agregar</button>
-            </form>
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-          </div>
         </div>
             </div>
 </div>
@@ -98,13 +100,46 @@
                 $(".lavador").click(function() {
                     let _lava = $(this).attr("_lava");
                     $.post("accionesturnos",{lava:_lava},function(mensaje)
-                    {
+                      {
                         $("#titulo").text("Seleccionar Lavador");
                         $("#c").html(mensaje);
-                    }
-                );    
+                      }
+                    );    
                 });
 </script>
+
+<!-- <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Selecciona el formulario por su ID
+    const form = document.querySelector('form');
+
+    // Adjunta un evento al evento 'submit' del formulario
+    form.addEventListener('submit', function(event) {
+      // Obtiene el valor actual del campo txtCostoLavado
+      const costoLavado = document.getElementById('txtCostoLavado').value;
+
+      // Asigna este valor al campo txtcostoadd
+      document.getElementById('txtcostoadd').value = costoLavado;
+
+      // Asegura que el valor se haya asignado correctamente antes de enviar el formulario
+      // Puedes agregar una pequeña demora (por ejemplo, 100 milisegundos) para asegurarte de que la asignación se complete
+      setTimeout(function() {
+        // Envía el formulario después de asignar el valor
+        form.submit();
+      }, 100);
+      
+      // Evita el envío del formulario por defecto
+      event.preventDefault();
+    });
+
+    // Adjunta un evento al botón de envío del formulario
+    const submitButton = form.querySelector('button[type="submit"]');
+    submitButton.addEventListener('click', function() {
+      // Simula el clic en el botón de envío para activar el evento 'submit' del formulario
+      form.dispatchEvent(new Event('submit'));
+    });
+  });
+</script> -->
 
 
 
@@ -123,7 +158,7 @@
             </div>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
           </div>
         </div>
             </div>

@@ -2,7 +2,6 @@
 <html>
 <head>
   <title>Bimbuñuelo Autolavado</title>
-<<<<<<< HEAD
   <!-- <link rel="stylesheet" type="text/css" href="dist/css/bootstrap.min.css"> -->
   <link rel="stylesheet" type="text/css" href="css/StylesGio.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
@@ -12,7 +11,6 @@
   <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
  
-=======
   <link rel="stylesheet" type="text/css" href="dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -26,35 +24,37 @@
   <script src="dist/js/bootstrap.min.js"></script>
   <script src="jquery/jquery.min.js"></script>
   <style>
- .card-image img{
-    width: 100% !important;
-    height: auto !important;
-    border-radius: 5px !important;
-  }
-  .redondear{
-    border-radius: 5px !important;
-    box-shadow: 1px 1px 1px rgb(85, 84, 84) !important;
-    max-width: 100% !important;
-  }
-  body {
-    background-color: rgb(86, 153, 172);
-  }
-  .ColorTurnos{
-    background-color: rgb(30, 91,120);
-  }
-  .imgbarra
-  {
-    width: 5% !important;
-    height: auto !important;
-    border-radius: 5px !important;
-  }
-  .divpeque
-  {
-    width: 5% !important;
-    height: auto !important;
-  }
-  </style>
->>>>>>> eae0ad1b98f95d00e25a20529411db4740d470b2
+    .card-image img{
+        width: 100% !important;
+        height: auto !important;
+        border-radius: 5px !important;
+      }
+      .redondear{
+        border-radius: 5px !important;
+        box-shadow: 1px 1px 1px rgb(85, 84, 84) !important;
+        max-width: 100% !important;
+      }
+      body {
+        background-color: rgb(86, 153, 172);
+      }
+      .ColorTurnos{
+        background-color: rgb(30, 91,120);
+      }
+      .imgbarra
+      {
+        width: 5% !important;
+        height: auto !important;
+        border-radius: 5px !important;
+      }
+      .divpeque
+      {
+        width: 5% !important;
+        height: auto !important;
+      }
+      .text-azul1{
+          color: #1c5c79 !important;
+      }
+    </style>
 </head>
 <body>
   <div><?php echo $view_content; ?></div>

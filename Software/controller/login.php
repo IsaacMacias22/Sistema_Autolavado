@@ -9,7 +9,7 @@
     if (isset($_POST['txtusuario'])) 
     {
         $dc = $l->GetDatos($_POST['txtusuario']);
-        if ($dc[1] == $_POST['txtcontrasena']) 
+        if ($dc[1] == strtoupper(hash('sha256',$_POST['txtcontrasena'])))
         {
             $p['usuario'] = $dc[0];
             $p['rol'] = $dc[2];

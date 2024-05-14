@@ -5,9 +5,9 @@
         {
             switch($tipo)
             {
-                case 'Auto': return new Automovil(); break;
+                case 'Automóvil': return new Automovil(); break;
                 case 'Camioneta': return new Camioneta(); break;
-                case 'Tractocamion': return new Tractocamion(); break;
+                case 'Tracto camión': return new Tractocamion(); break;
             }
         }
     }

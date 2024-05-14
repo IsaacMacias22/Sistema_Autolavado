@@ -6,11 +6,12 @@
             $con = new mysqli(s,u,p,bd);
             $con->set_charset("utf8");
             $query = $con->stmt_init();
-            $query->prepare("SELECT turnos.ID ,cliente.nombre AS cliente ,vehiculo.nombreve AS vehiculo ,usuarios.nombre AS Empleado, turnos.costo AS Costo, turnos.fecha AS Fecha, turnos.estatus AS Estatus 
-            FROM cliente, vehiculo, usuarios, turnos WHERE cliente.ID = turnos.fkidcliente AND vehiculo.ID = turnos.fkidvehiculo AND usuarios.ID = turnos.fkidempleado AND fecha = ?");
+            $query->prepare("SELECT turnos.idTurno ,clientes.nombre AS cliente , CONCAT(vehiculos.marca, ' ', vehiculos.modelo, ' ', vehiculos.anio, ' ', vehiculos.color) AS vehiculo,
+            vehiculos.imagen, empleados.nombre AS empleado, turnos.costo AS costo, turnos.fecha AS fecha, turnos.estatus AS estatus 
+            FROM clientes, vehiculos, empleados, turnos WHERE clientes.idCliente = turnos.fkIdCliente AND vehiculos.idVehiculo = turnos.fkIdVehiculo AND empleados.idEmpleado = turnos.fkIdEmpleado AND fecha = ?");
             $query->bind_param('s', $fecha);
             $query->execute();
-            $query->bind_result($ID,$cliente,$vehiculo,$empleado,$costo,$fecha,$estatus);
+            $query->bind_result($idTurno,$cliente,$vehiculo,$imagen,$empleado,$costo,$fecha,$estatus);
             $rsesta = '';
             $rspro = '';
             $rster = '';
@@ -59,8 +60,8 @@
                     <div class="col p-0 me-3 mb-3 mt-3">
       <div class="card">
         <div class="row p-0">
-            <div class="col card-image">
-                <img src="./images/car.jpg" class="" alt="Imagen">
+            <div class="col card-image d-flex">
+                <img src="http://localhost/sistema_autolavado/Sistema_Autolavado/Software/storage/'.$imagen.'" class="img-fluid" alt="Imagen">
             </div>
             <div class="col p-0">
                 <h6 class="mt-2 mb-3">'.$cliente.'</h6>
@@ -70,9 +71,9 @@
             </div>
             <div class="col">
 
-                    <button class=" '.$color.' redondear text-center text-white h-100 w-100 cambiar"  data-toggle="modal" data-target="#exampleModal" _ide='.$ID.'>
+                    <button class=" '.$color.' redondear text-center text-white h-100 w-100 cambiar"  data-toggle="modal" data-target="#exampleModal" _ide='.$idTurno.'>
                         <h4 class="m-0">TURNO:</h4>
-                        <br><h1 class="m-0">'.$ID.'</h1>
+                        <br><h1 class="m-0">'.$idTurno.'</h1>
                     </button>
                 
             </div>
@@ -89,8 +90,8 @@
                     <div class="col p-0 me-3 mb-3 mt-3">
       <div class="card">
         <div class="row p-0">
-            <div class="col card-image">
-                <img src="./images/car.jpg" class="" alt="Imagen">
+            <div class="col card-image d-flex">
+                <img src="http://localhost/sistema_autolavado/Sistema_Autolavado/Software/storage/'.$imagen.'" class="img-fluid" alt="Imagen">
             </div>
             <div class="col p-0">
                 <h6 class="mt-2 mb-3">'.$cliente.'</h6>
@@ -98,10 +99,10 @@
                 <h6 class="mb-0">Lavador:</h6><p class="mb-0">'.$empleado.'</p>
                 <h6 class="mb-0">Precio:</h6><p class="mb-0">$'.$costo.'</p>
             </div>
-            <div class="col">
-                    <button class=" '.$color.' redondear text-center text-white h-100 w-100 cambiar"  data-toggle="modal" data-target="#exampleModal" _ide='.$ID.'>
+            <div class="col d-flex">
+                    <button class=" '.$color.' redondear text-center text-white h-100 w-100 cambiar"  data-toggle="modal" data-target="#exampleModal" _ide='.$idTurno.'>
                         <h4 class="m-0">TURNO:</h4>
-                        <br><h1 class="m-0">'.$ID.'</h1>
+                        <br><h1 class="m-0">'.$idTurno.'</h1>
                     </button>
             </div>
         </div>
@@ -119,8 +120,8 @@
                     <div class="col p-0 me-3 mb-3 mt-3">
       <div class="card">
         <div class="row p-0">
-            <div class="col card-image">
-                <img src="./images/car.jpg" class="" alt="Imagen">
+            <div class="col card-image d-flex">
+                <img src="http://localhost/sistema_autolavado/Sistema_Autolavado/Software/storage/'.$imagen.'" class="img-fluid" alt="Imagen">
             </div>
             <div class="col p-0">
                 <h6 class="mt-2 mb-3">'.$cliente.'</h6>
@@ -129,9 +130,9 @@
                 <h6 class="mb-0">Precio:</h6><p class="mb-0">$'.$costo.'</p>
             </div>
             <div class="col">
-                    <button class=" '.$color.' redondear text-center text-white h-100 w-100 cambiar"  data-toggle="modal" data-target="#exampleModal" _ide='.$ID.'>
+                    <button class=" '.$color.' redondear text-center text-white h-100 w-100 cambiar"  data-toggle="modal" data-target="#exampleModal" _ide='.$idTurno.'>
                         <h4 class="m-0">TURNO:</h4>
-                        <br><h1 class="m-0">'.$ID.'</h1>
+                        <br><h1 class="m-0">'.$idTurno.'</h1>
                     </button>
             </div>
         </div>
@@ -155,7 +156,7 @@
             $con = new mysqli(s,u,p,bd);
             $con->set_charset("utf8");
             $query = $con->stmt_init();
-            $query->prepare("SELECT turnos.ID, cliente.nombre, turnos.estatus FROM cliente, turnos WHERE cliente.ID = turnos.fkidcliente AND turnos.ID = ?");
+            $query->prepare("SELECT turnos.idTurno, clientes.nombre, turnos.estatus FROM clientes, turnos WHERE clientes.idCliente = turnos.fkIdCliente AND turnos.idTurno = ?");
             $query->bind_param('s', $id);
             $query->execute();
             $query->bind_result($id, $cliente, $estatus);
@@ -169,7 +170,7 @@
             $con = new mysqli(s,u,p,bd);
             $con->set_charset("utf8");
             $query = $con->stmt_init();
-            $query->prepare("update turnos set estatus=? where id=?");
+            $query->prepare("update turnos set estatus=? where idTurno=?");
             $query->bind_param('ss', $estatus,$id);
             $query->execute();
             $query->close();
@@ -180,20 +181,23 @@
             $con = new mysqli(s,u,p,bd);
             $con->set_charset("utf8");
             $query = $con->stmt_init();
-            $query->prepare("SELECT cliente.ID, cliente.nombre, vehiculo.id ,vehiculo.nombreve AS vehiculo from cliente, vehiculo WHERE cliente.fkidvehiculo = vehiculo.ID");
+            $query->prepare("SELECT clientes.idCliente, clientes.nombre, vehiculos.idVehiculo , CONCAT(vehiculos.marca, ' ', vehiculos.modelo, ' ', vehiculos.anio, ' ', vehiculos.color) 
+            AS vehiculo, vehiculos.observacion, tipos.descripcion as tipo
+            from clientes, vehiculos, tipos WHERE vehiculos.fkIdCliente = clientes.IdCliente AND vehiculos.fkIdTipo = tipos.idTipo");
             // $query->bind_param('s', $filtro);
             $query->execute();
-            $query->bind_result($id, $nombre,$idve, $vehiculo);
+            $query->bind_result($id, $nombre,$idve, $vehiculo, $observacion, $tipo);
 
             $rs = '<table class="table table-bordered table-striped">
-                    <thead><tr><th>Nombre</th><th>Vehiculo</th></tr></thead>
+                    <thead><tr><th>Nombre</th><th>Vehiculo</th><th>Tipo</th></tr></thead>
                     <tbody>';
             while($query->fetch())
             {
                 $rs.= '<tr>
-                            <td class="info" data-nombre="'.$nombre.'" data-vehiculo="'.$vehiculo.'" data-id="'.$id.'" data-idve="'.$idve.'" data-dismiss="modal">'.$nombre.'</td>
-                            <td class="info" data-nombre="'.$nombre.'" data-vehiculo="'.$vehiculo.'" data-id="'.$id.'" data-idve="'.$idve.'" data-dismiss="modal">'.$vehiculo.'</td>
-                       </tr>';
+                            <td class="info" data-nombre="'.$nombre.'" data-vehiculo="'.$vehiculo.'" data-id="'.$id.'" data-idve="'.$idve.'" data-observacion="'.$observacion.'" data-tipo="'.$tipo.'" data-dismiss="modal">'.$nombre.'</td>
+                            <td class="info" data-nombre="'.$nombre.'" data-vehiculo="'.$vehiculo.'" data-id="'.$id.'" data-idve="'.$idve.'" data-observacion="'.$observacion.'" data-tipo="'.$tipo.'" data-dismiss="modal">'.$vehiculo.'</td>
+                            <td class="info" data-nombre="'.$nombre.'" data-vehiculo="'.$vehiculo.'" data-id="'.$id.'" data-idve="'.$idve.'" data-observacion="'.$observacion.'" data-tipo="'.$tipo.'" data-dismiss="modal">'.$tipo.'</td>
+                        </tr>';
             }
             $query->close();  
             return $rs. '</tbody></table>
@@ -210,7 +214,14 @@
                     $("#txtcliente").val(nombre);
                     $("#txtautomovil").val(vehiculo);
 
-                    $("#txtcostoadd").val("110.50");
+                    let _tipo = $(this).data("tipo");
+                    let _observacion = $(this).data("observacion");
+                    $.post("accionesturnos",{tipo:_tipo, observacion:_observacion},function(mensaje)
+                      {
+                        $("#txtCostoLavado").val(parseFloat(mensaje));
+                        $("#txtcostoadd").val(parseFloat(mensaje));
+                      }
+                    );    
                     
                 });
                 </script>
@@ -222,13 +233,13 @@
             $con = new mysqli(s,u,p,bd);
             $con->set_charset("utf8");
             $query = $con->stmt_init();
-            $query->prepare("SELECT usuarios.ID, usuarios.nombre FROM usuarios WHERE rol = 'operador'");
+            $query->prepare("SELECT empleados.idEmpleado, CONCAT(empleados.nombre, ' ', empleados.apellidos) AS nombre FROM empleados");
             // $query->bind_param('s', $filtro);
             $query->execute();
             $query->bind_result($id, $nombre);
 
             $rs = '<table class="table table-bordered table-striped">
-                    <thead><tr><th>Num Empleado</th><th>Nombre</th></tr></thead>
+                    <thead><tr><th>No. Empleado</th><th>Nombre</th></tr></thead>
                     <tbody>';
             while($query->fetch())
             {
@@ -260,8 +271,8 @@
             $con = new mysqli(s,u,p,bd);
             $con->set_charset("utf8");
             $query = $con->stmt_init();
-            $query->prepare("INSERT INTO turnos VALUES (NULL,?,?,?,?,?,'En Espera')");
-            $query->bind_param('sssss',$fkidcliente,$fkidvehiculo,$fkidempleado,$costo,$fecha);
+            $query->prepare("CALL p_insertar_modificarTurnos(-1, ?, ?, 'En Espera', ?, ?, ?)");
+            $query->bind_param('dsiii',$costo, $fecha, $fkidcliente, $fkidvehiculo, $fkidempleado);
             $query->execute();
             $query->close();
         }

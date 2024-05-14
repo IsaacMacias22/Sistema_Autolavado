@@ -2,5 +2,5 @@
     define('s','localhost');
     define('u','root');
     define('p','');
-    define('bd','prueba');
+    define('bd','autolavado_bimbunuelos');
 ?>
