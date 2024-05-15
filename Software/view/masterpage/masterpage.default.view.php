@@ -55,6 +55,7 @@
           color: #1c5c79 !important;
       }
     </style>
+     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
 <div><?php echo $NAVBAR;?></div>

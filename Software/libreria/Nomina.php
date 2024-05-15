@@ -1,16 +1,6 @@
 <?php
     class Nomina
     {
-        function Guardar($idTipo, $costo)
-        {
-            $con = new mysqli(s,u,p,bd);
-            $con->set_charset("utf8");
-            $query = $con->stmt_init();
-            $query->prepare("call p_insertar_modificarTipos(?, ?)");
-            $query->bind_param('id', $idTipo, $costo);
-            $query->execute();
-            $query->close();
-        }
         function Mostrar($fecha)
         {
             $con = new mysqli(s,u,p,bd);
@@ -20,7 +10,7 @@
             $query->bind_param('s', $fecha);
             $query->execute();
             $query->bind_result($numeroEmpleado, $nombreEmpleado, $autosLavados, $montoCobrado, $porcentaje, $montoGanado, $gananciaGenerada); //Traer variables
-            $rs = '
+            $rs = ' <h4 class="text-center text-white">'.date('d-m-Y', strtotime($fecha)).'</h4>
                     <div class="table-responsive-md">
                     <table class="table table-striped table-hover">
                     <thead><tr><th class="fs-5 text-azul1">No. Empleado</th><th class="fs-5 text-azul1">Nombre Empleado</th><th class="fs-5 text-azul1">Vehículos Lavados</th>
@@ -34,25 +24,39 @@
                         <td class="text-white">'.$autosLavados.'</td>
                         <td class="text-white">$'.$montoCobrado.'</td>
                         <td class="text-white">'.$porcentaje.'%</td>
-                        <td class="text-white">$'.$montoGanado.'</td>
+                        <td class="text-white fw-bold">$'.$montoGanado.'</td>
                        </tr>';
             }
             $query->close();  
             return $rs. '</tbody></table></div>';
-
         }
-        function GetDatos($id)
+        function Obtener($fecha)
         {
             $con = new mysqli(s,u,p,bd);
             $con->set_charset("utf8");
             $query = $con->stmt_init();
-            $query->prepare("select * from tipos where idTipo=?");
-            $query->bind_param('i', $id);
+            $query->prepare("call p_mostrar_vehiculos_lavados(?)");
+            $query->bind_param('s', $fecha);
             $query->execute();
-            $query->bind_result($idTipo, $descripcion, $costo, $observacion); //Traer datos
-            $query->fetch(); //Almacenarlos en la memoria
+            $query->bind_result($numeroEmpleado, $nombreEmpleado, $autosLavados, $montoCobrado, $porcentaje, $montoGanado, $gananciaGenerada);
+
+            // Arreglo para almacenar todos los datos
+            $empleadosDatos = array();
+
+            while($query->fetch()) {
+                $empleado = array(
+                    'nombre' => $nombreEmpleado,
+                    'monto' => $montoGanado
+                );
+                $empleadosDatos[] = $empleado; // Agregar empleado al arreglo
+            } 
+
             $query->close();
-            return array($idTipo, $descripcion, $costo, $observacion);
+
+            // Convertir el arreglo a JSON
+            $json_data = json_encode($empleadosDatos);
+            return $json_data;
         }
+
     }
 ?>

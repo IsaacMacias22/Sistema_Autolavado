@@ -50,7 +50,7 @@
                                 <a class="nav-link disabled text-primary" href="#" tabindex="-1" aria-disabled="true">Usuario:'.$dc[0].'</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link btn btn-secondary" href="logout">Log Out</a>
+                                <a class="nav-link btn btn-secondary" href="logout">Cerrar Sesión</a>
                             </li>
                         </ul>
                     </div>
@@ -80,17 +80,19 @@
                                     <a class="dropdown-item" href="tipos">TIPOS DE VEHICULOS</a>
                                 </div>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="nomina">NOMINA</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="reportes">REPORTES</a>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    REPORTES
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    <a class="dropdown-item" href="nomina">PAGOS DIARIOS</a>
+                                </div>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link disabled text-primary" href="#" tabindex="-1" aria-disabled="true">Usuario:'.$dc[0].'</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link btn btn-secondary" href="logout">Log Out</a>
+                                <a class="nav-link btn btn-secondary" href="logout">Cerrar Sesión</a>
                             </li>
                         </ul>
                     </div>
