@@ -136,6 +136,7 @@
   </div>
   <div>
     <?php echo $resultado; ?>
+    <?php echo $aux; ?>
   </div>
 </section>
 
