@@ -14,7 +14,7 @@
 
 	if (isset($_POST['ide'])) 
 	{
-		$c->Editar($_POST['ide'],$_POST['estatus']);
+		$c->Editar($_POST['ide'],$_POST['estatus'],date('Y-m-d'));
 		$p['resultado'] = $c->GetDatos(date('Y-m-d'));
 	}
 

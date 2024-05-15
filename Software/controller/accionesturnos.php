@@ -10,7 +10,7 @@
     
     if (isset($_POST['ide'])) 
     {
-        $dc = Turnos::Consultar($_POST['ide']);
+        $dc = Turnos::Consultar($_POST['ide'], date('Y-m-d'));
         if ($dc[2] == "En Espera") 
         {
             echo $mensaje = '

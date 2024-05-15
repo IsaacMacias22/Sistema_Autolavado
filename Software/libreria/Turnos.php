@@ -151,13 +151,13 @@
             return array($rsesta, $rspro, $rster);
         }
 
-        public static function Consultar($id)
+        public static function Consultar($id, $fecha)
         {
             $con = new mysqli(s,u,p,bd);
             $con->set_charset("utf8");
             $query = $con->stmt_init();
-            $query->prepare("SELECT turnos.idTurno, clientes.nombre, turnos.estatus FROM clientes, turnos WHERE clientes.idCliente = turnos.fkIdCliente AND turnos.idTurno = ?");
-            $query->bind_param('s', $id);
+            $query->prepare("SELECT turnos.idTurno, clientes.nombre, turnos.estatus FROM clientes, turnos WHERE clientes.idCliente = turnos.fkIdCliente AND turnos.idTurno = ? AND turnos.fecha=?");
+            $query->bind_param('ss', $id, $fecha);
             $query->execute();
             $query->bind_result($id, $cliente, $estatus);
             $query->fetch();
@@ -165,13 +165,13 @@
             return array($id,$cliente,$estatus);
         }
 
-        public function Editar($id,$estatus)
+        public function Editar($id,$estatus,$fecha)
         {
             $con = new mysqli(s,u,p,bd);
             $con->set_charset("utf8");
             $query = $con->stmt_init();
-            $query->prepare("update turnos set estatus=? where idTurno=?");
-            $query->bind_param('ss', $estatus,$id);
+            $query->prepare("update turnos set estatus=? where idTurno=? and fecha=?");
+            $query->bind_param('sss', $estatus,$id,$fecha);
             $query->execute();
             $query->close();
         }
