@@ -22,12 +22,12 @@
     <div class="modal fade" id="staticBackdropNuevo" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
       <div class="modal-dialog modal-lg">
         <div class="modal-content">
-            <div class="modal-header">
-              <h1 class="modal-title fs-5" id="staticBackdropLabel">Nuevo Cliente</h1>
+            <div class="modal-header modaltitulo">
+              <h5 class="modal-title fs-5" id="staticBackdropLabel">Nuevo Cliente</h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
               <form id="formularioCliente" action="clientes" method="post">
-                <div class="modal-body">
+                <div class="modal-body modalcolor">
                   <div class="form-group my-2">
                     <label for="txtNombre" class="form-label">Nombre</label>
                     <input type="text" name="txtNombre" class="form-control" id="txtNombre" placeholder="Nombre de Cliente">       
@@ -41,7 +41,7 @@
                     <input type="email" name="txtCorreo" class="form-control" id="txtCorreo" placeholder="Correo de Cliente">       
                   </div>
                 </div>
-                <div class="modal-footer">
+                <div class="modal-footer modalcolor">
                   <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
                   <button type="submit" class="btn btn-primary">Guardar</button>
                 </div>

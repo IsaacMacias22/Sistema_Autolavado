@@ -40,12 +40,6 @@
       .ColorTurnos{
         background-color: rgb(30, 91,120);
       }
-      .imgbarra
-      {
-        width: 5% !important;
-        height: auto !important;
-        border-radius: 5px !important;
-      }
       .divpeque
       {
         width: 5% !important;
@@ -53,6 +47,27 @@
       }
       .text-azul1{
           color: #1c5c79 !important;
+      }
+      .imgbarra
+      {
+        width: 18% !important;
+        height: auto !important;
+        border-radius: 5px !important;
+      }.modalcolor
+      {
+        background-color: rgb(197,197,197);
+      }
+      .modaltitulo
+      {
+        background-color: rgb(42,65,81);
+      }
+      .modaltitulo h5
+      {
+        color: white;
+      }
+      .modaltitulo span
+      {
+        color: white;
       }
     </style>
      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>

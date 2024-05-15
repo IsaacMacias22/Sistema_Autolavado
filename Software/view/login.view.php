@@ -50,7 +50,7 @@
       </div>
       <div class="col-auto">
         <form method="post" action="login"  style="width: 420px; margin: 0 auto;">
-          <h2 class="text-center mb-4 mt-4">Bienvenido<br><h4 class="text-center">Inicio Sesion</h4></br></h2>
+          <h2 class="text-center mb-4 mt-4">Bienvenido<br><h4 class="text-center">Inicio de Sesión</h4></br></h2>
           <div class="form-group mt-4">
             <label for="username">Usuario:</label>
             <input type="text" class="form-control" name="txtusuario" id="txtusuario" placeholder="Ingresa Usuario">
@@ -63,7 +63,7 @@
             <!-- <label for="validacion" class="textred">Contraseña o Usuario Incorrecto</label> -->
             <?php echo $resultado; ?>
           </div>
-          <button type="submit" class="btn btn-primary btn-block mt-4">Sign in</button>
+          <button type="submit" class="btn btn-primary btn-block mt-4">Iniciar Sesión</button>
         </form>
       </div>
     </div>

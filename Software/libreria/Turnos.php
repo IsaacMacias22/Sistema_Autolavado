@@ -238,9 +238,10 @@
             $query->execute();
             $query->bind_result($id, $nombre);
 
-            $rs = '<table class="table table-bordered table-striped">
+            $rs = '  
+                    <table class="table table-bordered table-striped">
                     <thead><tr><th>No. Empleado</th><th>Nombre</th></tr></thead>
-                    <tbody>';
+                    <tbody id="tablaEmpleados">';
             while($query->fetch())
             {
                 $rs.= '<tr>

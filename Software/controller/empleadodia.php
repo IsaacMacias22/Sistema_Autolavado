@@ -12,6 +12,12 @@
 		header("Location: login");
 		exit();
 	}
+	if ($_SESSION['rol'] !== "Administrador") 
+	{
+		session_destroy();
+		header("Location: login");
+		exit();
+	}
     //tomar peticion post para insertar
 	if (isset($_POST['fechaPagos'])) {
 		$p['resultado'] = $c->Mostrar($_POST['fechaPagos']);

@@ -57,17 +57,17 @@
             <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div class="modal-dialog modal-lg">
                     <div class="modal-content">
-                        <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="staticBackdropLabel">Edición de Cliente</h1>
+                        <div class="modal-header modaltitulo">
+                            <h5 class="modal-title fs-5" id="staticBackdropLabel">Edición de Cliente</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <form id="formularioClienteEdit" action="clientes" method="post">
-                            <div class="modal-body">
+                            <div class="modal-body modalcolor">
                                 <div id="x">
                                 
                                 </div>
                             </div>
-                            <div class="modal-footer">
+                            <div class="modal-footer modalcolor">
                                 <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
                                 <button type="submit" class="btn btn-primary">Guardar</button>
                             </div>

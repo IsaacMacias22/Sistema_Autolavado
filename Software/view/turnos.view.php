@@ -1,7 +1,10 @@
 <div class="ColorTurnos d-flex align-items-center">
-        <h5 class="text-white ms-3 mt-4 mb-4">REGISTRO TURNOS</h5>
+        <h5 class="text-white ms-3 mt-2">REGISTRO TURNOS</h5>
     <div class="col">
-        <button class="btn btn-light ms-3 me-4 float-end" data-toggle="modal" data-target="#addturno">NUEVO</button>
+        <button class="btn btn-light ms-3 me-4 float-end" data-toggle="modal" data-target="#addturno"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
+            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+            <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"/>
+          </svg>&nbsp;NUEVO</button>
     </div>
 </div>
     
@@ -43,20 +46,26 @@
 <div class="modal fade bd-example-modal-lg" id="addturno" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
-          <div class="modal-header">
+          <div class="modal-header modaltitulo">
             <h5 class="modal-title" id="myLargeModalLabel">Agregar Turno</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-            <div class="modal-body">
+            <div class="modal-body modalcolor">
             <div class="row">
               <div class="col-6">
                   Cliente:
-                  <button class="btn btn-sm cliente" type="button" data-toggle="modal" data-target="#buscarcliente" _clien=%>&#128269;</button>
+                  <button class="btn btn-sm cliente" type="button" data-toggle="modal" data-target="#buscarcliente" _clien=%>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/></svg>
+                  </button>
                   <input type="text" name="txtcliente" id="txtcliente" class="form-control" disabled>
                   Lavador:
-                  <button class="btn btn-sm lavador" type="button" data-toggle="modal" data-target="#buscarcliente" _lava=%>&#128269;</button>
+                  <button class="btn btn-sm lavador" type="button" data-toggle="modal" data-target="#buscarcliente" _lava=%>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/></svg>
+                  </button>
                   <input type="text" name="txtlavador" id="txtlavador" class="form-control" disabled>
               </div>
               <div class="col-6">
@@ -69,7 +78,7 @@
               </div>
               </div>
             </div>
-            <div class="modal-footer">
+            <div class="modal-footer modalcolor">
               <form action="turnos" method="post">
                   <input type="hidden" name="txtidcli" id="txtidcli">
                   <input type="hidden" name="txtautomoviladd" id="txtautomoviladd">
@@ -107,56 +116,21 @@
                 });
 </script>
 
-<!-- <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    // Selecciona el formulario por su ID
-    const form = document.querySelector('form');
-
-    // Adjunta un evento al evento 'submit' del formulario
-    form.addEventListener('submit', function(event) {
-      // Obtiene el valor actual del campo txtCostoLavado
-      const costoLavado = document.getElementById('txtCostoLavado').value;
-
-      // Asigna este valor al campo txtcostoadd
-      document.getElementById('txtcostoadd').value = costoLavado;
-
-      // Asegura que el valor se haya asignado correctamente antes de enviar el formulario
-      // Puedes agregar una pequeña demora (por ejemplo, 100 milisegundos) para asegurarte de que la asignación se complete
-      setTimeout(function() {
-        // Envía el formulario después de asignar el valor
-        form.submit();
-      }, 100);
-      
-      // Evita el envío del formulario por defecto
-      event.preventDefault();
-    });
-
-    // Adjunta un evento al botón de envío del formulario
-    const submitButton = form.querySelector('button[type="submit"]');
-    submitButton.addEventListener('click', function() {
-      // Simula el clic en el botón de envío para activar el evento 'submit' del formulario
-      form.dispatchEvent(new Event('submit'));
-    });
-  });
-</script> -->
-
-
-
 <div class="modal fade" id="buscarcliente" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
             <div class="modal-content">
-          <div class="modal-header">
+          <div class="modal-header modaltitulo">
             <h5 class="modal-title" id="titulo"></h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <div class="modal-body">
+          <div class="modal-body modalcolor">
             <div id="c">
                 
             </div>
           </div>
-          <div class="modal-footer">
+          <div class="modal-footer modalcolor">
             <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
           </div>
         </div>

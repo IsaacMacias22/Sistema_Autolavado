@@ -22,12 +22,12 @@
     <div class="modal fade" id="staticBackdropNuevo" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
       <div class="modal-dialog modal-lg">
         <div class="modal-content">
-            <div class="modal-header">
-              <h1 class="modal-title fs-5" id="staticBackdropLabel">Nuevo Vehículo</h1>
+            <div class="modal-header modaltitulo">
+              <h5 class="modal-title fs-5" id="staticBackdropLabel">Nuevo Vehículo</h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
               <form id="formularioVehiculo" action="vehiculos" method="post" enctype="multipart/form-data">
-                <div class="modal-body">
+                <div class="modal-body modalcolor">
                     <div class="row my-2">
                         <div class="form-group col">
                             <label for="cmbTipo" class="form-label">Tipo</label>
@@ -90,7 +90,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="modal-footer">
+                <div class="modal-footer modalcolor">
                   <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
                   <button type="submit" class="btn btn-primary">Guardar</button>
                 </div>
@@ -102,11 +102,11 @@
     <div class="modal fade" id="staticBackdropCliente" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
-                <div class="modal-header">
-                <h1 class="modal-title fs-5" id="staticBackdropLabel">Lista de clientes</h1>
+                <div class="modal-header modaltitulo">
+                <h5 class="modal-title fs-5" id="staticBackdropLabel">Lista de clientes</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body">
+                <div class="modal-body modalcolor">
                     <div class="mb-3">
                         <label for="inputFiltro" class="form-label">Buscar cliente:</label>
                         <input type="text" class="form-control" id="inputFiltro" placeholder="Escribe el nombre del cliente">
@@ -127,7 +127,7 @@
                         </table>
                     </div>
                 </div>
-                <div class="modal-footer">
+                <div class="modal-footer modalcolor">
                     <button type="button" class="btn boton2 text-light" data-bs-dismiss="modal">Cerrar</button>
                 </div>
             </div>

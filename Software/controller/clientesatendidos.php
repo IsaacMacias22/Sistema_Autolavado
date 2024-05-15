@@ -12,6 +12,12 @@
 		header("Location: login");
 		exit();
 	}
+    if ($_SESSION['rol'] !== "Administrador") 
+	{
+		session_destroy();
+		header("Location: login");
+		exit();
+	}
     //tomar peticion post para insertar
 	if (isset($_POST['fechaInicio'])) {
         if(empty($_POST['fechaInicio']) || empty($_POST['fechaFin'])){
