@@ -10,7 +10,8 @@
             $query->bind_param('ss', $fechaInicio, $fechaFin);
             $query->execute();
             $query->bind_result($cliente, $vehiculo, $imagen, $numeroservicios);
-            $rs = '<h4 class="text-center text-azul1 fw-bold mt-4">Desglose</h4>
+            $rs = ' <h4 class="text-center text-azul1 fw-bold mt-4">'.date('d/m/Y', strtotime($fechaInicio)).' - '.date('d/m/Y', strtotime($fechaFin)).'</h4>
+                    <h4 class="text-center text-azul1 fw-bold mt-4">Desglose</h4>
                     <div class="row w-75 mx-auto">
                     <div class="table-responsive-md">
                     <table class="table table-striped table-hover">
