@@ -87,6 +87,7 @@
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                     <a class="dropdown-item" href="nomina">PAGOS DIARIOS</a>
                                     <a class="dropdown-item" href="empleadodia">EMPLEADO DEL DÍA</a>
+                                    <a class="dropdown-item" href="clientesatendidos">CLIENTES ATENDIDOS</a>
                                 </div>
                             </li>
                             <li class="nav-item">
