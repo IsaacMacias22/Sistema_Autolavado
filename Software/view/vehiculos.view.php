@@ -40,7 +40,7 @@
                         </div>
                         <div class="form-group col">
                             <label for="txtObservacion" class="form-label">Observación</label>
-                            <input type="number" name="txtObservacion" class="form-control" id="txtObservacion" placeholder="Observación" disabled>       
+                            <input type="number" name="txtObservacion" class="form-control" id="txtObservacion" placeholder="Observación" step="any" disabled>       
                         </div>
                     </div>
                     <div class="row my-2">
@@ -136,7 +136,6 @@
   </div>
   <div>
     <?php echo $resultado; ?>
-    <?php echo $aux; ?>
   </div>
 </section>
 
@@ -253,7 +252,7 @@
   
         if (selectedValue == "1") {
             observacionInput.value = "1";
-            observacionInput.disabled = true;
+            observacionInput.disabled = false;
         } 
         else if (selectedValue == "2"){
             observacionInput.placeholder = "Número de puertas";
